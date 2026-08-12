@@ -1,0 +1,10 @@
+{
+  "adb": "tools/platform-tools/adb",
+  "device_connect": "127.0.0.1:5555",
+  "device_serial": "127.0.0.1:5555",
+  "package": "com.tencent.tmgp.supercell.clashroyale",
+  "frida_host": "127.0.0.1:27042",
+  "frida_device_port": "27042",
+  "frida_server": "tools/frida/frida-server-17.17.0-android-arm64",
+  "apk": ""
+}

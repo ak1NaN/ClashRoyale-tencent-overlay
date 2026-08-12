@@ -1,0 +1,2 @@
+frida==17.17.0
+pyobjc

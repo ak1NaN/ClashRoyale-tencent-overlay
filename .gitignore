@@ -1,0 +1,13 @@
+.DS_Store
+.venv/
+downloads/
+tools/
+logs/
+__pycache__/
+*.pyc
+config/runtime_settings.json
+config/arena_grid_profile.json
+*.apk
+*.apks
+*.xapk
+*.so
