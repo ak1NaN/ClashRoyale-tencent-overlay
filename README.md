@@ -1,10 +1,10 @@
-# 腾讯《皇室战争》部署队列网格覆盖层（macOS）
+# 皇室战争马服内部游戏状态读取程序
 
-这是面向腾讯 Android arm64 客户端的 macOS 桌面覆盖层。它会在竞技场画面上叠加 18x32 网格，显示部署队列中的卡牌位置、敌我归属，以及当前绑定到的对手圣水值。
+这里是ak1,首先感谢Jason-XII所开源的基于NULL‘s Royale服务器的读取程序。该项目基于该NULL服代码修改而成，面向Android arm64 腾讯CR客户端的 macOS 桌面覆盖层。它会在竞技场画面上叠加 18x32 网格，显示部署队列中的卡牌位置、敌我归属，以及在最上方显示当前绑定到的对手圣水值。
 
 ![运行效果：竞技场网格、对手圣水条、校准面板和队列日志](assets/overlay-demo.png)
 
-本项目只包含运行源码与安装脚本，不包含游戏 APK、模拟器镜像、已提取的游戏库、对局记录或个人配置。
+本项目只包含运行源码与安装脚本，不包含游戏 APK、模拟器、个人配置等，个人使用了MUMU模拟器进行操作，因为我的8GB内存Mac使用android studio会非常卡顿
 
 ## 功能
 
@@ -14,7 +14,7 @@
 - 根据本局 `battleState` 清理旧对局数据，避免上一局的指针残留。
 - 根据本机队伍所在半场自动旋转网格 180 度；仍保留手动翻转按钮。
 - 提供 macOS 设置窗口，可填写 ADB、模拟器端口、Frida、游戏包名和可选 APK 路径。
-- 首次安装自动下载 ADB、Frida Server，并建立 Python 运行环境。
+- 首次安装自动下载 ADB、Frida Server，并在项目路径下建立独立 Python 运行环境。
 
 当前验证的游戏包名为：
 
@@ -22,7 +22,7 @@
 com.tencent.tmgp.supercell.clashroyale
 ```
 
-游戏客户端更新后，原生偏移可能变化；若出现无队列事件、无圣水或 Frida 注入失败，应先确认客户端版本与此项目测试版本一致。
+游戏客户端更新后，原生内存偏移可能变化；若出现无队列事件、无圣水或 Frida 注入失败，应先确认客户端版本与此项目测试版本一致。
 
 ## 运行条件
 
@@ -125,4 +125,4 @@ tools/platform-tools/adb devices
 
 ## 致谢
 
-本腾讯运行时由协作开发完成，基于 [Jason-XII/cr-memory-reader](https://github.com/Jason-XII/cr-memory-reader) 中 `queue_overlay` 子任务的 Null 服务器基线扩展而来，加入了腾讯客户端迁移、对局隔离、敌我和半场识别、对手圣水绑定、设置界面与可迁移启动流程。
+基于 [Jason-XII/cr-memory-reader](https://github.com/Jason-XII/cr-memory-reader) 中 `queue_overlay` 子任务的 Null 服务器baseline扩展而来，加入了腾讯客户端迁移、对局隔离、敌我和半场识别、对手圣水绑定、设置界面与可迁移启动流程。具体原理可以查看Jason的讲解视频:）
